@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(wgsLR)
+library(wgsLR0)
 ```
 
 ## Load data
@@ -160,7 +160,7 @@ And now `wR = 1/1000` and integrating over `wT` with this prior distribution (re
 ```{r}
 prior_mean <- 1/100
 prior_var <- prior_mean^2/2
-prior_shp <- wgsLR::get_beta_parameters(mu = prior_mean,
+prior_shp <- wgsLR0::get_beta_parameters(mu = prior_mean,
                                         sigmasq = prior_var,
                                         a = 0,
                                         b = 0.5)

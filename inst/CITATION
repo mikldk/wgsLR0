@@ -1,4 +1,4 @@
-citHeader("To cite wgsLR in publications, use both of the following:")
+citHeader("To cite wgsLR0 in publications, use both of the following:")
 
 c(
   bibentry(
@@ -35,4 +35,4 @@ c(
   )
 )
 
-citFooter("If you use wgsLR, please cite the articles.")
+citFooter("If you use wgsLR0, please cite the articles.")

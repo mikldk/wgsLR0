@@ -340,7 +340,7 @@ estimate_w_bayesian <- function(x,
     samples
   })
   
-  class(chain_samples) <- c("wgsLR_bayesian_sample", class(chain_samples))
+  class(chain_samples) <- c("wgsLR0_bayesian_sample", class(chain_samples))
   chain_samples
 }
 
@@ -359,7 +359,7 @@ estimate_w_bayesian <- function(x,
 #' 
 #' @export
 posterior_samples <- function(x) {
-  stopifnot(methods::is(x, "wgsLR_bayesian_sample"))
+  stopifnot(methods::is(x, "wgsLR0_bayesian_sample"))
   lapply(x, \(y) y$samples) |> unlist()
 }
 
@@ -380,7 +380,7 @@ posterior_samples <- function(x) {
 #' 
 #' @export
 posterior_samples_df <- function(x) {
-  stopifnot(methods::is(x, "wgsLR_bayesian_sample"))
+  stopifnot(methods::is(x, "wgsLR0_bayesian_sample"))
   do.call(rbind, lapply(seq_along(x), \(i) data.frame(chain = i, iteration = seq_along(x[[i]]$samples), sample = x[[i]]$samples)))
 }
 

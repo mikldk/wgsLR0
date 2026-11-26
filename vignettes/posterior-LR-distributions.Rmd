@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(wgsLR)
+library(wgsLR0)
 ```
 
 The following is based on Section 3 in @MeesterSlooten2021.

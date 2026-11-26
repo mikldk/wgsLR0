@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup, message=FALSE, warning=FALSE}
-library(wgsLR)
+library(wgsLR0)
 ```
 
 # Estimating the genotype error probability, $w$
@@ -31,9 +31,9 @@ tab
 ## Maximum likelihood estimation
 
 ```{r}
-w_mle <- wgsLR::estimate_w(tab)
+w_mle <- wgsLR0::estimate_w(tab)
 w_mle
-w_mle_se <- wgsLR::estimate_w_se(tab, w_mle)
+w_mle_se <- wgsLR0::estimate_w_se(tab, w_mle)
 w_mle_se
 ```
 
@@ -46,7 +46,7 @@ The last lines estimate the standard error that will be used below to construct 
 The package contains a simple Metropolis-Hastings sampler (also see the "Using Stan for Bayesian inference" vignette):
 
 ```{r}
-w_b <- wgsLR::estimate_w_bayesian(tab) |> posterior_samples()
+w_b <- wgsLR0::estimate_w_bayesian(tab) |> posterior_samples()
 w_b_q <- quantile(w_b, c(0.025, 0.975))
 ```
 
@@ -71,7 +71,7 @@ credible interval (Bayesian inference).
 No errors and matching genotypes:
 
 ```{r}
-LR_contribs <- wgsLR::calc_LRs_w(xT = c(0, 0), 
+LR_contribs <- wgsLR0::calc_LRs_w(xT = c(0, 0), 
                                  xR = c(0, 0), 
                                  w = 0, 
                                  p = c(0.25, 0.25, 0.5))
@@ -81,7 +81,7 @@ prod(LR_contribs)
 No errors and non-matching genotypes:
 
 ```{r}
-LR_contribs <- wgsLR::calc_LRs_w(xT = c(1, 0), 
+LR_contribs <- wgsLR0::calc_LRs_w(xT = c(1, 0), 
                                  xR = c(0, 0), 
                                  w = 0, 
                                  p = c(0.25, 0.25, 0.5))
@@ -92,7 +92,7 @@ prod(LR_contribs)
 Errors possible and matching genotypes:
 
 ```{r}
-LR_contribs <- wgsLR::calc_LRs_w(xT = c(0, 0), 
+LR_contribs <- wgsLR0::calc_LRs_w(xT = c(0, 0), 
                                  xR = c(0, 0), 
                                  w = 0.001, 
                                  p = c(0.25, 0.25, 0.5))
@@ -102,7 +102,7 @@ prod(LR_contribs)
 Errors possible and non-matching genotypes:
 
 ```{r}
-LR_contribs <- wgsLR::calc_LRs_w(xT = c(1, 0), 
+LR_contribs <- wgsLR0::calc_LRs_w(xT = c(1, 0), 
                                  xR = c(0, 0), 
                                  w = 0.001, 
                                  p = c(0.25, 0.25, 0.5))
@@ -116,7 +116,7 @@ the suspect reference profile has $w_r = 10^{-8}$. Then
 the $LR$ is:
 
 ```{r}
-LR_contribs <- wgsLR::calc_LRs_wTwR(xT = c(1, 0), 
+LR_contribs <- wgsLR0::calc_LRs_wTwR(xT = c(1, 0), 
                                     xR = c(0, 0), 
                                     wT = 1e-4, 
                                     wR = 1e-8,
@@ -134,11 +134,11 @@ mean value $\mu = 10^{-4}$ and variance $\sigma^2 = \mu^2 / 2$:
 ```{r}
 mu <- 1e-4
 sigmasq <- mu^2 / 2
-shpT <-wgsLR::get_beta_parameters(mu = mu, sigmasq = sigmasq, a = 0, b = 0.5)
+shpT <-wgsLR0::get_beta_parameters(mu = mu, sigmasq = sigmasq, a = 0, b = 0.5)
 # 90% probability:
-q <- wgsLR::qbeta05(c(0.05, 0.95), shape1 = shpT[1], shape2 = shpT[2])
+q <- wgsLR0::qbeta05(c(0.05, 0.95), shape1 = shpT[1], shape2 = shpT[2])
 q
-curve(wgsLR::dbeta05(x, shpT[1], shpT[2]), from = 0, to = 1e-3, n = 1001)
+curve(wgsLR0::dbeta05(x, shpT[1], shpT[2]), from = 0, to = 1e-3, n = 1001)
 abline(v = mu, lty = 2)
 abline(v = q, lty = 3)
 ```
@@ -147,7 +147,7 @@ Further, assume that the suspect reference profile has $w_R = 10^{-8}$.
 Then the $WoE = \log_{10}(LR)$ is:
 
 ```{r}
-wgsLR::calc_WoE_wTwR_integrate_wT_mc(
+wgsLR0::calc_WoE_wTwR_integrate_wT_mc(
   xT = c(1, 0, 2, 2), 
   xR = c(0, 0, 2, 2), 
   shape1T_Hp = shpT[1], shape2T_Hp = shpT[2],
@@ -161,7 +161,7 @@ wgsLR::calc_WoE_wTwR_integrate_wT_mc(
 
 The usual $LR$ values, $\frac{1}{p_{Z^S}}$ for matches and $0$ for non-matches, 
 are obtained when setting $w = 0$.
-For example with both packages `wgsLR` and `caracas` loaded we can do the following:
+For example with both packages `wgsLR0` and `caracas` loaded we can do the following:
 
 ```{r, eval = require("caracas", quietly = TRUE), warning=FALSE}
 library(caracas)

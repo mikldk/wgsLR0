@@ -496,7 +496,7 @@ if (FALSE) {
 
 # 2025-04-15
 if (FALSE) {
-  d_tmp <- wgsLR::d_formulas_Hp_w |> 
+  d_tmp <- wgsLR0::d_formulas_Hp_w |> 
     filter(Z == "0/0") |> 
     group_by(group) |>
     summarise(expr = paste0(expr, collapse = " + "),
@@ -514,7 +514,7 @@ if (FALSE) {
   
   
   
-  d_tmp <- wgsLR::d_formulas_Hp_wTwR |> 
+  d_tmp <- wgsLR0::d_formulas_Hp_wTwR |> 
     filter(Z == "0/0") |> 
     group_by(group) |>
     summarise(expr = paste0(expr, collapse = " + "),
@@ -529,7 +529,7 @@ if (FALSE) {
   simplify(x)
   
   
-  d_tmp <- wgsLR::d_formulas_Hp_wTwR |> 
+  d_tmp <- wgsLR0::d_formulas_Hp_wTwR |> 
     mutate(genotype_prob = paste0("p_", Z_MA)) |> 
     group_by(group) |>
     summarise(#expr = paste0(expr, collapse = " + "),

@@ -124,7 +124,7 @@ wT_posterior_Ha_naive <- function(xT, xR, wR, p,
     samples
   })
   
-  class(chain_samples) <- c("wgsLR_bayesian_sample", class(chain_samples))
+  class(chain_samples) <- c("wgsLR0_bayesian_sample", class(chain_samples))
   chain_samples
 }
 
@@ -156,7 +156,7 @@ wT_posterior_Ha_stan <- function(xT, xR, wR, p,
                p_0 = p_0, p_1 = p_1, p_2 = p_2, 
                alpha_wT = prior_a, beta_wT = prior_b)
   
-  fl_Ha <- system.file("stan", "wT-posterior-distributions-Ha_autogen.stan", package = "wgsLR")
+  fl_Ha <- system.file("stan", "wT-posterior-distributions-Ha_autogen.stan", package = "wgsLR0")
   m_Ha_autogen <- cmdstanr::cmdstan_model(fl_Ha, quiet = TRUE)
   f_Ha_autogen <- m_Ha_autogen$sample(data = data, chains = chains, show_messages = show_messages, ...)
   f_Ha_autogen

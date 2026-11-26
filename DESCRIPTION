@@ -15,8 +15,8 @@ Depends:
     pracma,
     DEoptim
 License: GPL
-URL: https://github.com/mikldk/wgsLR
-BugReports: https://github.com/mikldk/wgsLR/issues
+URL: https://github.com/mikldk/wgsLR0
+BugReports: https://github.com/mikldk/wgsLR0/issues
 Roxygen: list(markdown = TRUE)
 LazyData: true
 Suggests: 

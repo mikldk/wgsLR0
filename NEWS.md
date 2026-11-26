@@ -1,4 +1,4 @@
-# wgsLR 0.0.3
+# wgsLR / wgsLR0 0.0.3
 
 * Added `calc_WoE_wTwR_mleH2_wT_num()`
 * For `calc_WoE_wTwR_profilemax_wT_num()` and `calc_WoE_wTwR_mleH2_wT_num()`:

@@ -472,7 +472,7 @@ add_errors_Hp_w <- function(tab, w) {
   
   check_tab(tab)
   
-  d_probs <- wgsLR::d_probtable_Hp_w
+  d_probs <- wgsLR0::d_probtable_Hp_w
   d_probs$prob <- unlist(lapply(d_probs$expr, function(z) eval(parse(text = z), list(w = w))))
   probs <- split(d_probs, d_probs$Z012)
   #lapply(probs, \(z) sum(z$prob))
@@ -518,7 +518,7 @@ add_errors_Hp_wTwR <- function(tab, wT, wR) {
   
   check_tab(tab)
   
-  d_probs <- wgsLR::d_probtable_Hp_wTwR
+  d_probs <- wgsLR0::d_probtable_Hp_wTwR
   d_probs$prob <- unlist(lapply(d_probs$expr, function(z) eval(parse(text = z), list(wT = wT, wR = wR))))
   probs <- split(d_probs, d_probs$Z012)
   #lapply(probs, \(z) sum(z$prob))
@@ -566,7 +566,7 @@ add_errors_Hp_wTwR <- function(tab, wT, wR) {
 add_errors_Ha_w <- function(tab, w) {
   check_tab(tab)
   
-  d_probs <- wgsLR::d_probtable_Ha_w
+  d_probs <- wgsLR0::d_probtable_Ha_w
   d_probs$prob <- unlist(lapply(d_probs$expr, function(z) eval(parse(text = z), list(w = w))))
   probs <- lapply(split(d_probs, d_probs$ZT012), 
                   function(l) split(l, l$ZR012))
@@ -615,7 +615,7 @@ add_errors_Ha_w <- function(tab, w) {
 add_errors_Ha_wTwR <- function(tab, wT, wR) {
   check_tab(tab)
   
-  d_probs <- wgsLR::d_probtable_Ha_wTwR
+  d_probs <- wgsLR0::d_probtable_Ha_wTwR
   d_probs$prob <- unlist(lapply(d_probs$expr, function(z) eval(parse(text = z), list(wT = wT, wR = wR))))
   probs <- lapply(split(d_probs, d_probs$ZT012), 
                   function(l) split(l, l$ZR012))
