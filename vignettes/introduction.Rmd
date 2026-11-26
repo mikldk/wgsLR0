@@ -164,6 +164,7 @@ are obtained when setting $w = 0$.
 For example with both packages `wgsLR0` and `caracas` loaded we can do the following:
 
 ```{r, eval = require("caracas", quietly = TRUE), warning=FALSE}
+reticulate::py_require("sympy")
 library(caracas)
 LR <- d_LR_w$expr
 LRw0 <- sapply(LR, \(x) as_sym(x) |> subs("w", 0) |> as_character())

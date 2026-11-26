@@ -3,7 +3,10 @@ options(mc.cores = 8L)
 
 test_that("wT-posterior-distributions-Ha", {
   skip_if_not_installed("cmdstanr")
-  
+  # The cmdstanr package can be installed without CmdStan itself
+  cmdstan_found <- tryCatch(!is.null(cmdstanr::cmdstan_version()), error = function(e) FALSE)
+  skip_if(!cmdstan_found, "CmdStan is not installed")
+
   set.seed(1)
   q <- 0.2
   p <- c(q^2, 2*q*(1-q), (1-q)^2)

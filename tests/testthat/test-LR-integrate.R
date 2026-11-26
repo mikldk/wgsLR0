@@ -14,8 +14,8 @@ test_that("likelihoods in numerator and denominator", {
     xT <- Hp_cases$xT |> c()
     xR <- Hp_cases$xR |> c()
     
-    calc_num_Hp <- generate_calc_num_Hp(xT = xT, xR = xR, wR = wR, p = p)
-    calc_den_Ha <- generate_calc_den_Ha(xT = xT, xR = xR, wR = wR, p = p)
+    calc_num_Hp <- generate_calc_num_Hp_neg(xT = xT, xR = xR, wR = wR, p = p)
+    calc_den_Ha <- generate_calc_den_Ha_neg(xT = xT, xR = xR, wR = wR, p = p)
     
     #calc_num_Hp(1e-3)
     #calc_den_Ha(1e-3)
@@ -43,8 +43,8 @@ test_that("likelihoods in numerator and denominator", {
     xT <- Ha_cases$xT |> c()
     xR <- Ha_cases$xR |> c()
     
-    calc_num_Hp <- generate_calc_num_Hp(xT = xT, xR = xR, wR = wR, p = p)
-    calc_den_Ha <- generate_calc_den_Ha(xT = xT, xR = xR, wR = wR, p = p)
+    calc_num_Hp <- generate_calc_num_Hp_neg(xT = xT, xR = xR, wR = wR, p = p)
+    calc_den_Ha <- generate_calc_den_Ha_neg(xT = xT, xR = xR, wR = wR, p = p)
     
     #calc_num_Hp(1e-3)
     #calc_den_Ha(1e-3)

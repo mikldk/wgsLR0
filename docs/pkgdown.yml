@@ -1,5 +1,5 @@
-pandoc: 3.8.3
-pkgdown: 2.2.0
+pandoc: '3.10'
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   error-rate-uncertainty: error-rate-uncertainty.html
@@ -7,4 +7,4 @@ articles:
   posterior-LR-distributions: posterior-LR-distributions.html
   tutorial-in-use: tutorial-in-use.html
   using-stan: using-stan.html
-last_built: 2026-11-09T00:46Z
+last_built: 2026-11-26T00:11Z
